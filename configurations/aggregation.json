@@ -1,11 +1,14 @@
 {
-    "version": "1.0.0",
+    "version": "1.1.0",
     "config": {
         "SV_CONFIG": {
             "dependencies": {
                 "pr_registry": {
                     "type": "projection",
-                    "on": "_identifier"
+                    "on": "_identifier",
+                    "identifierQueryMapping": {
+                        "ID_USER": "_identifier.ANOTHER_IDENTIFIER"
+                    }
                 },
                 "ALLERGENS": {
                     "type": "config"
