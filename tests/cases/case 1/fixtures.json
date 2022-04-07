@@ -1,23 +1,39 @@
 {
-  "USER": [{
-    "id": 1,
-    "name": "Julie",
-    "__STATE__": "PUBLIC",
-    "job": "doctor"
-  }, {
-    "id": 2,
-    "name": "Selina",
-    "__STATE__": "PUBLIC",
-    "job": "firefighter"
-  }],
-  "DOCTORS": [{
-    "id": "doctor",
-    "startedAt": 2021,
-    "__STATE__": "PUBLIC"
-  }],
-  "FIREFIGHTERS": [{
-    "jobId": "firefighter",
-    "startedAt": 1999,
-    "__STATE__": "PUBLIC"
-  }]
+  "my-projection": [{
+      "FIELD_1": "bbb",
+      "FIELD_2": 111,
+      "__STATE__": "PUBLIC"
+    },
+    {
+      "FIELD_1": "ccc",
+      "FIELD_2": 222,
+      "__STATE__": "PUBLIC"
+    }],
+  "another-projection": [
+    {
+      "FIELD_1": "aaa",
+      "FIELD_2": 111,
+      "__STATE__": "PUBLIC"
+    },
+    {
+      "FIELD_1": "bbb",
+      "FIELD_2": 222,
+      "__STATE__": "PUBLIC"
+    },
+    {
+      "FIELD_1": "bbb",
+      "FIELD_2": 111,
+      "__STATE__": "PUBLIC"
+    },
+    {
+      "FIELD_1": "ccc",
+      "FIELD_2": 333,
+      "__STATE__": "PUBLIC"
+    },
+    {
+      "FIELD_1": 111,
+      "FIELD_2": "bbb",
+      "__STATE__": "PUBLIC"
+    }
+  ]
 }

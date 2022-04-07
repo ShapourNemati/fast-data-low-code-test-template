@@ -20,15 +20,15 @@ tap.test('fast data test', t => {
             const expected = require(path.join(folderTest, 'expected.json'))
             const fixtures = require(path.join(folderTest, 'fixtures.json'))
             const identifier = require(path.join(folderTest, 'identifier.json'))
-            
+
             const {collectionDb} = await initializeMongo(t, fixtures)
-            
-            
+
+
             const logger = pino({level: 'silent'})
             automationLib.validator.aggregation.erSchema(logger, erSchema).validate()
             automationLib.validator.aggregation.aggregation(logger, aggregation).validate()
             automationLib.validator.aggregation.aggregation(logger, aggregation).requiredFiles()
-            
+
             const aggregateFn = automationLib.aggregation(
                 logger,
                 erSchema,

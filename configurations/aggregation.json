@@ -1,49 +1,119 @@
 {
-    "version": "1.1.0",
-    "config": {
-      "SV_CONFIG": {
-        "dependencies": {
-          "USER": {
-            "type": "projection",
-            "on": "_identifier"
-          },
-          "JOB_DESCRIPTION": {
-            "type": "projection",
-            "_select": {
-              "options": [
-                {
-                    "when": {
-                        "==": ["USER.job", "__string__[doctor]"]
-                    },
-                    "value": {
-                        "type": "projection",
-                        "aliasOf": "DOCTORS",
-                        "on": "U_to_D"
-                    }
-                  },
-                  {
-                    "when": {
-                        "==": ["USER.job", "__string__[firefighter]"]
-                    },
-                    "value": {
-                        "type": "projection",
-                        "aliasOf": "FIREFIGHTERS",
-                        "on": "U_to_F"
-                    }
-                }
-              ],
-              "default": {
-                "type": "projection",
-                "aliasOf": "DOCTORS",
-                "on": "U_to_D"
-              }
-            }
-          }
+  "version": "1.1.0",
+  "config": {
+    "SV_CONFIG": {
+      "dependencies": {
+        "my-projection": {
+          "type": "projection",
+          "on": "_identifier"
         },
-        "mapping": {
-            "name": "USER.name",
-            "starting_date": "JOB_DESCRIPTION.startedAt"
+        "OTHER_PROJECTION_INFO": {
+          "type": "config"
+        },
+        "AND_EXAMPLE": {
+          "type": "config"
+        },
+        "NESTED_EXAMPLE": {
+          "type": "config"
+        },
+        "CONSTANT_EXAMPLE": {
+          "type": "config"
+        },
+        "LT_EXAMPLE": {
+          "type": "config"
+        },
+        "IN_EXAMPLE": {
+          "type": "config"
         }
+      },
+      "mapping": {
+        "myId": "my-projection.FIELD_1",
+        "name": "my-projection.FIELD_2",
+        "otherProjection": "OTHER_PROJECTION_INFO",
+        "andExample": "AND_EXAMPLE",
+        "nestedExample": "NESTED_EXAMPLE",
+        "constantExample": "CONSTANT_EXAMPLE",
+        "ltExample": "LT_EXAMPLE",
+        "inExample": "IN_EXAMPLE"
+      }
+    },
+    "OTHER_PROJECTION_INFO": {
+      "joinDependency": "another-projection",
+      "dependencies": {
+        "another-projection": {
+          "type": "projection",
+          "on": "or-condition"
+        }
+      },
+      "mapping": {
+        "otherId": "another-projection.FIELD_1",
+        "otherName": "another-projection.FIELD_2"
+      }
+    },
+    "AND_EXAMPLE": {
+      "joinDependency": "another-projection",
+      "dependencies": {
+        "another-projection": {
+          "type": "projection",
+          "on": "and-condition"
+        }
+      },
+      "mapping": {
+        "otherIdAnd": "another-projection.FIELD_1",
+        "otherName": "another-projection.FIELD_2"
+      }
+    },
+    "NESTED_EXAMPLE": {
+      "joinDependency": "another-projection",
+      "dependencies": {
+        "another-projection": {
+          "type": "projection",
+          "on": "nested-condition"
+        }
+      },
+      "mapping": {
+        "otherIdNested": "another-projection.FIELD_1",
+        "otherName": "another-projection.FIELD_2"
+      }
+    },
+    "CONSTANT_EXAMPLE": {
+      "joinDependency": "another-projection",
+      "dependencies": {
+        "another-projection": {
+          "type": "projection",
+          "on": "constant-condition"
+        }
+      },
+      "mapping": {
+        "constantField": "another-projection.FIELD_1",
+        "otherName": "another-projection.FIELD_2"
+      }
+    },
+    "LT_EXAMPLE": {
+      "joinDependency": "another-projection",
+      "dependencies": {
+        "another-projection": {
+          "type": "projection",
+          "on": "lt-condition"
+        }
+      },
+      "mapping": {
+        "lessEqualField": "another-projection.FIELD_1",
+        "otherName": "another-projection.FIELD_2"
+      }
+    },
+    "IN_EXAMPLE": {
+      "joinDependency": "another-projection",
+      "dependencies": {
+        "another-projection": {
+          "type": "projection",
+          "on": "in-condition"
+        }
+      },
+      "mapping": {
+        "inField": "another-projection.FIELD_1",
+        "otherName": "another-projection.FIELD_2"
       }
     }
   }
+}

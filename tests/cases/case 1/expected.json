@@ -1,4 +1,60 @@
 {
-  "name": "Julie",
-  "starting_date": 2021
+  "myId": "bbb",
+  "name": 111,
+  "otherProjection": [{
+    "otherId": "aaa",
+    "otherName": 111
+  },
+  {
+    "otherId": "bbb",
+    "otherName": 222
+  },
+  {
+    "otherId": "bbb",
+    "otherName": 111
+  }],
+  "andExample": [{
+    "otherIdAnd": "bbb",
+    "otherName": 111
+  }],
+  "nestedExample": [
+    {
+      "otherIdNested": "bbb",
+      "otherName": 111
+    },
+    {
+      "otherIdNested": 111,
+      "otherName": "bbb"
+    }
+  ],
+  "constantExample": [
+    {
+      "constantField": "bbb",
+      "otherName": 222
+    },
+    {
+      "constantField": "bbb",
+      "otherName": 111
+    }
+  ],
+  "ltExample": [
+    {
+      "lessEqualField": "aaa",
+      "otherName": 111
+    },
+    {
+      "lessEqualField": "bbb",
+      "otherName": 111
+    }
+  ],
+  "inExample": [
+    {
+      "inField": "bbb",
+      "otherName": 222
+    },
+    {
+      "inField": "ccc",
+      "otherName": 333
+    }
+  ]
 }

@@ -1,27 +1,81 @@
 {
-    "version": "1.0.0",
-    "config": {
-      "USER": {
-        "outgoing": {
-          "DOCTORS": {
-            "conditions": {
-              "U_to_D": {
-                "condition": {
-                  "id": "job"
+  "version": "1.0.0",
+  "config": {
+    "my-projection": {
+      "outgoing": {
+        "another-projection": {
+          "conditions": {
+            "or-condition": {
+              "condition": {
+                "$or": [
+                  {
+                    "FIELD_1": "FIELD_1"
+                  },
+                  {
+                    "FIELD_2": "FIELD_2"
+                  }
+                ]
+              },
+              "oneToMany": true
+            },
+            "and-condition": {
+              "condition": {
+                "$and": [
+                  {
+                    "FIELD_1": "FIELD_1"
+                  },
+                  {
+                    "FIELD_2": "FIELD_2"
+                  }
+                ]
+              },
+              "oneToMany": true
+            },
+            "nested-condition": {
+              "condition": {
+                "$or": [
+                  {
+                    "$and": [
+                      {
+                        "FIELD_1": "FIELD_1"
+                      },
+                      {
+                        "FIELD_2": "FIELD_2"
+                      }
+                    ]
+                  },
+                  {
+                    "FIELD_2": "FIELD_1"
+                  }
+                ]
+              },
+              "oneToMany": true
+            },
+            "constant-condition": {
+              "condition": {
+                "FIELD_1": "__constant__[bbb]"
+              },
+              "oneToMany": true
+            },
+            "lt-condition": {
+              "condition": {
+                "FIELD_2": {
+                  "$lt": 200
                 }
-              }
-            }
-          },
-          "FIREFIGHTERS": {
-            "conditions": {
-              "U_to_F": {
-                "condition": {
-                  "jobId": "job"
+              },
+              "oneToMany": true
+            },
+            "in-condition": {
+              "condition": {
+                "FIELD_2": {
+                  "$in": ["__integer__[333]", "__integer__[222]"]
                 }
-              }
+              },
+              "oneToMany": true
             }
           }
         }
       }
     }
   }
+}
