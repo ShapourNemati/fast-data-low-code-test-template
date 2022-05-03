@@ -56,5 +56,6 @@
       "inField": "ccc",
       "otherName": 333
     }
-  ]
+  ],
+  "withNull": "has null"
 }

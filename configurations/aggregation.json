@@ -34,7 +34,23 @@
         "nestedExample": "NESTED_EXAMPLE",
         "constantExample": "CONSTANT_EXAMPLE",
         "ltExample": "LT_EXAMPLE",
-        "inExample": "IN_EXAMPLE"
+        "inExample": "IN_EXAMPLE",
+        "withNull": {
+          "_select": {
+            "options": [
+              {
+                "when": {
+                  "==": [
+                    "LT_EXAMPLE.age",
+                    null
+                  ]
+                },
+                "value": "__string__[has null]"
+              }
+            ],
+            "default": "__string__[foobar]"
+          }
+        }
       }
     },
     "OTHER_PROJECTION_INFO": {
